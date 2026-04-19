@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-zk-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-zk-ui: 'Jost', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-zen-dark: #111111;
+  --color-zen-red: #7f1d1d;
+  --color-zen-red-accent: #8b1d1d;
+  --color-zen-muted: #737373;
+  --color-zen-surface: #f5f5f5;
+  /* Contact / reservation page (mock palette) */
+  --color-zk-crimson: #7b1b2e;
+  --color-zk-crimson-light: #9c2d42;
+  --color-zk-blush: #f9f2f4;
+  --color-zk-ink: #1a1a1a;
+  --color-zk-mid: #4a4a4a;
+  --color-zk-muted: #888888;
+  --color-zk-line: #e0d9db;
+  --color-zk-panel: #f5f0f1;
+  --shadow-zk-card: 0 4px 24px rgba(123, 27, 46, 0.08);
+}
+
+@keyframes zk-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-zk-shake {
+  animation: zk-shake 0.4s ease;
+}
+
+@keyframes zk-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-zk-modal-in {
+  animation: zk-modal-in 0.35s cubic-bezier(0.22, 0.68, 0, 1.2) forwards;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100dvh;
+}
