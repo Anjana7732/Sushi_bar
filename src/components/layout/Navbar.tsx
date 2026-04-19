@@ -2,7 +2,6 @@ import { Menu, X } from 'lucide-react'
 import { useCallback, useEffect, useId, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-import brandLogo from '../../assets/asian-spice-logo.png'
 import { ThemeToggle } from './ThemeToggle'
 
 export interface NavbarLink {
@@ -65,8 +64,8 @@ export function Navbar({
     : 'flex flex-wrap items-center justify-center gap-10 text-[13px] font-semibold uppercase tracking-[0.18em] text-neutral-800 dark:text-neutral-200'
 
   const logoTextClass = isMenuChrome
-    ? 'font-serif text-base font-medium italic leading-snug tracking-tight text-zen-red sm:text-xl sm:leading-tight dark:text-rose-400'
-    : 'font-serif text-base font-medium italic leading-snug tracking-tight text-zen-red sm:text-xl sm:leading-tight dark:text-red-400'
+    ? 'font-serif text-base font-semibold italic leading-snug tracking-tight text-zen-red sm:text-xl sm:leading-tight dark:text-red-500'
+    : 'font-serif text-base font-semibold italic leading-snug tracking-tight text-zen-red sm:text-xl sm:leading-tight dark:text-red-500'
 
   return (
     <header className={headerClass}>
@@ -74,16 +73,8 @@ export function Navbar({
         <Link
           to="/"
           aria-label="Asian Spice kitchen, home"
-          className="flex min-w-0 items-center gap-2 transition-opacity hover:opacity-90 sm:gap-3"
+          className="flex min-w-0 items-center transition-opacity hover:opacity-90"
         >
-          <img
-            src={brandLogo}
-            alt=""
-            width={120}
-            height={48}
-            className="h-9 w-auto shrink-0 sm:h-10"
-            decoding="async"
-          />
           <span className={logoTextClass}>Asian Spice kitchen</span>
         </Link>
 

@@ -13,10 +13,10 @@ export function HeroSection() {
         <img
           src={heroBackdrop}
           alt=""
-          className="h-full w-full object-cover object-[center_12%] opacity-[0.38] mix-blend-multiply sm:object-[center_8%] dark:opacity-25 dark:mix-blend-soft-light"
+          className="h-full w-full object-cover object-[center_12%] opacity-[0.58] sm:object-[center_8%] dark:opacity-40"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-white/80 to-white dark:from-neutral-950/40 dark:via-neutral-950/85 dark:to-neutral-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/55 to-white/85 dark:from-neutral-950/20 dark:via-neutral-950/65 dark:to-neutral-950/85" />
       </div>
 
       <div className="relative mx-auto flex min-h-[min(88vh,820px)] max-w-6xl flex-col items-center justify-center px-4 py-24 text-center sm:px-6 lg:min-h-[min(90vh,880px)] lg:px-8 lg:py-28">

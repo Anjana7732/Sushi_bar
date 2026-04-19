@@ -20,13 +20,33 @@ export function ContactSection() {
             <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">
               Phone
             </dt>
-            <dd className="mt-1 font-medium text-neutral-900 dark:text-neutral-100">+1 (415) 555-0198</dd>
+            <dd className="mt-1 font-medium text-neutral-900 dark:text-neutral-100">
+              +30 21 0894 1001
+            </dd>
           </div>
           <div>
             <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">
               Email
             </dt>
-            <dd className="mt-1 font-medium text-neutral-900 dark:text-neutral-100">hello@asianspicekitchen.com</dd>
+            <dd className="mt-1 font-medium text-neutral-900 dark:text-neutral-100">
+              askfood2026@gmail.com
+            </dd>
+          </div>
+          <div>
+            <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">
+              Address
+            </dt>
+            <dd className="mt-1 font-medium text-neutral-900 dark:text-neutral-100">
+              Glyfada, Athens, Greece
+            </dd>
+          </div>
+          <div>
+            <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">
+              Region
+            </dt>
+            <dd className="mt-1 font-medium text-neutral-900 dark:text-neutral-100">
+              Athens Riviera · Southern Athens
+            </dd>
           </div>
         </dl>
       </div>

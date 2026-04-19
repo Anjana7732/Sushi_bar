@@ -141,7 +141,7 @@ export function ContactReservationView() {
   }
 
   const openDirections = () => {
-    const q = encodeURIComponent('123 Culinary Ave, San Francisco, CA 94103')
+    const q = encodeURIComponent('Glyfada, Athens, Greece')
     window.open(`https://www.google.com/maps/search/?api=1&query=${q}`, '_blank', 'noopener,noreferrer')
   }
 
@@ -332,22 +332,22 @@ export function ContactReservationView() {
                 icon={<MapPin className="size-3.5" strokeWidth={2} aria-hidden />}
               >
                 <p>
-                  123 Culinary Ave
+                  Glyfada, Athens, Greece
                   <br />
-                  San Francisco, CA 94103
+                  Athens Riviera · Southern Athens
                 </p>
               </InfoRow>
               <InfoRow
                 label="Phone"
                 icon={<Phone className="size-3.5" strokeWidth={2} aria-hidden />}
               >
-                <p>+1 (415) 555-0198</p>
+                <p>+30 21 0894 1001</p>
               </InfoRow>
               <InfoRow
                 label="Email"
                 icon={<Mail className="size-3.5" strokeWidth={2} aria-hidden />}
               >
-                <p>reservations@asianspicekitchen.com</p>
+                <p>askfood2026@gmail.com</p>
               </InfoRow>
               <InfoRow
                 label="Hours"

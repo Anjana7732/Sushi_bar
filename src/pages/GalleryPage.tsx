@@ -1,13 +1,94 @@
 const GALLERY_ITEMS = [
-  { id: 'g1', alt: 'Sashimi platter with garnish' },
-  { id: 'g2', alt: 'Steaming dumplings in a bamboo basket' },
-  { id: 'g3', alt: 'Colorful vegetable stir-fry' },
-  { id: 'g4', alt: 'Matcha dessert with berries' },
-  { id: 'g5', alt: 'Chef torching nigiri' },
-  { id: 'g6', alt: 'Interior of the dining room' },
-  { id: 'g7', alt: 'Cocktail with citrus' },
-  { id: 'g8', alt: 'Bowl of ramen with soft egg' },
-  { id: 'g9', alt: 'Shared plates on a dark table' },
+  {
+    id: 'g1',
+    alt: 'Butter chicken in a copper serving bowl',
+    imageSrc:
+      'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g2',
+    alt: 'Paneer tikka skewers with charred vegetables',
+    imageSrc:
+      'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g3',
+    alt: 'Thai green curry served with jasmine rice',
+    imageSrc:
+      'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g4',
+    alt: 'Pad thai with shrimp, peanuts, and lime',
+    imageSrc:
+      'https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g5',
+    alt: 'Chinese kung pao chicken with peppers',
+    imageSrc:
+      'https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g6',
+    alt: 'Vegetable fried rice with spring onions',
+    imageSrc:
+      'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g7',
+    alt: 'Szechuan noodles tossed with chili oil',
+    imageSrc:
+      'https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g8',
+    alt: 'Sushi platter with salmon tuna and maki rolls',
+    imageSrc:
+      'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g9',
+    alt: 'Ramen bowl with egg greens and broth',
+    imageSrc:
+      'https://images.unsplash.com/photo-1557872943-16a5ac26437e?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g10',
+    alt: 'Chicken momos with spicy dipping sauce',
+    imageSrc:
+      'https://images.unsplash.com/photo-1626500155537-93690c24099e?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g11',
+    alt: 'Thai basil stir fry with chilies',
+    imageSrc:
+      'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g12',
+    alt: 'Crispy spring rolls with sweet chili dip',
+    imageSrc:
+      'https://images.unsplash.com/photo-1607330289024-1535c6b4e1c1?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g13',
+    alt: 'Chicken tikka platter with onions and mint chutney',
+    imageSrc:
+      'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g14',
+    alt: 'Chinese dumplings arranged on serving platter',
+    imageSrc:
+      'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'g15',
+    alt: 'Vegetable biryani served in a brass bowl',
+    imageSrc:
+      'https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=1200&q=80',
+  },
 ] as const
 
 export function GalleryPage() {
@@ -27,9 +108,9 @@ export function GalleryPage() {
         <ul className="mt-12 grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
           {GALLERY_ITEMS.map((item) => (
             <li key={item.id} className="min-w-0">
-              <figure className="group relative m-0 aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-200 shadow-sm ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/10">
+              <figure className="group relative m-0 aspect-[4/3] overflow-hidden bg-neutral-200 shadow-sm ring-1 ring-black/5 dark:bg-neutral-800 dark:ring-white/10">
                 <img
-                  src={`https://picsum.photos/seed/${item.id}/800/600`}
+                  src={item.imageSrc}
                   alt={item.alt}
                   width={800}
                   height={600}

@@ -32,13 +32,14 @@ const ITEMS: SignatureItem[] = [
     imageAlt: 'Pad Thai on a plate with lime',
   },
   {
-    id: 'samosa',
-    title: 'Artisan Samosa Chaat',
+    id: 'spring-rolls',
+    title: 'Thai Crispy Spring Rolls',
     price: '$15',
     description:
-      'Crispy pastries topped with tangy chutneys, yogurt, and chaat masala.',
-    imageSrc: 'https://images.unsplash.com/photo-1601050690597-23743a6c57b5?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'Chaat-style samosas with chutney',
+      'Golden spring rolls with julienned vegetables, herbs, and sweet chili dip.',
+    imageSrc:
+      'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Thai crispy spring rolls served with dipping sauce',
   },
 ]
 

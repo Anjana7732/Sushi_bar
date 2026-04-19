@@ -63,7 +63,7 @@ export const MENU_SECTIONS: MenuSectionData[] = [
         description:
           'Slow-braised lamb with coconut, curry leaves, and a bold chili-forward gravy.',
         imageSrc:
-          'https://images.unsplash.com/photo-1543339308-43e59d06b73c?auto=format&fit=crop&w=900&q=80',
+          'https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=900&q=80',
         imageAlt: 'Lamb curry in a bowl',
         tags: ['VERY SPICY'],
       },
@@ -82,7 +82,7 @@ export const MENU_SECTIONS: MenuSectionData[] = [
         description:
           'Crispy protein, bell peppers, and pineapple in a glossy sweet-sour sauce.',
         imageSrc:
-          'https://images.unsplash.com/photo-1526318896980-cf78e0889c71?auto=format&fit=crop&w=900&q=80',
+          'https://images.unsplash.com/photo-1606728035253-49e8a23146de?auto=format&fit=crop&w=900&q=80',
         imageAlt: 'Sweet and sour dish',
       },
       {
