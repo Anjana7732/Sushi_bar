@@ -3,7 +3,11 @@ import { Outlet, useLocation } from 'react-router-dom'
 
 import { Footer } from '../components/layout/Footer'
 import { Navbar } from '../components/layout/Navbar'
-import { footerColumns, primaryNavLinks } from '../config/siteNav'
+import {
+  footerColumns,
+  menuFooterInlineLinks,
+  primaryNavLinks,
+} from '../config/siteNav'
 
 /** Scroll to top on client-side route changes (BrowserRouter, not data router). */
 function ScrollToTop() {
@@ -15,15 +19,26 @@ function ScrollToTop() {
 }
 
 export function RootLayout() {
+  const { pathname } = useLocation()
+  const isMenuRoute = pathname === '/menu'
+
   return (
-    <div className="flex min-h-dvh flex-col bg-white text-neutral-900 antialiased">
+    <div className="flex min-h-dvh flex-col bg-white text-neutral-900 antialiased transition-colors duration-200 dark:bg-neutral-950 dark:text-neutral-100">
       <ScrollToTop />
       <Navbar
         links={primaryNavLinks}
         ctaLabel="Reservations"
         ctaTo="/reservations"
+        chrome={isMenuRoute ? 'menu' : 'default'}
       />
-      <main id="main-content" className="flex-1">
+      <main
+        id="main-content"
+        className={
+          isMenuRoute
+            ? 'flex-1 bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100'
+            : 'flex-1 bg-white dark:bg-neutral-950'
+        }
+      >
         <Outlet />
       </main>
       <Footer
@@ -31,6 +46,8 @@ export function RootLayout() {
         tagline="Authentic flavors, modern elegance, and a calm space to gather."
         year={2024}
         columns={footerColumns}
+        variant={isMenuRoute ? 'menu' : 'default'}
+        menuInlineLinks={isMenuRoute ? menuFooterInlineLinks : undefined}
       />
     </div>
   )

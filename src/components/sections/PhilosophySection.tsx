@@ -4,21 +4,21 @@ const CHEF_IMAGE =
 export function PhilosophySection() {
   return (
     <section
-      className="border-t border-neutral-200/80 bg-neutral-50 py-16 sm:py-20 lg:py-24"
+      className="border-t border-neutral-200/80 bg-neutral-50 py-16 sm:py-20 lg:py-24 dark:border-neutral-800 dark:bg-neutral-900"
       aria-labelledby="philosophy-heading"
     >
       <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-neutral-500">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-neutral-500 dark:text-neutral-400">
             Our philosophy
           </p>
           <h2
             id="philosophy-heading"
-            className="mt-3 font-serif text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl lg:text-[2.65rem] lg:leading-tight"
+            className="mt-3 font-serif text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl lg:text-[2.65rem] lg:leading-tight dark:text-neutral-50"
           >
             A Culinary Journey
           </h2>
-          <div className="mt-6 space-y-4 text-sm leading-relaxed text-neutral-500 sm:text-base">
+          <div className="mt-6 space-y-4 text-sm leading-relaxed text-neutral-500 sm:text-base dark:text-neutral-400">
             <p>
               At Asian Spice kitchen, we believe dining is more than a meal—it is a
               moment of connection. Every plate tells a story of tradition,
@@ -34,7 +34,7 @@ export function PhilosophySection() {
             </p>
           </div>
         </div>
-        <figure className="m-0 overflow-hidden rounded-3xl shadow-[0_24px_60px_-28px_rgba(0,0,0,0.25)] ring-1 ring-black/[0.05]">
+        <figure className="m-0 overflow-hidden rounded-3xl shadow-[0_24px_60px_-28px_rgba(0,0,0,0.25)] ring-1 ring-black/[0.05] dark:ring-white/10">
           <img
             src={CHEF_IMAGE}
             alt="Chef carefully plating a dish in the kitchen"

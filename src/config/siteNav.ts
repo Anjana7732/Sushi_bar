@@ -25,3 +25,11 @@ export const footerColumns = [
     links: [{ label: 'Press Kit', href: '#' }],
   },
 ] as const
+
+/** Compact footer row for the /menu page (matches dark menu mock). */
+export const menuFooterInlineLinks = [
+  { label: 'Privacy Policy', href: '#' },
+  { label: 'Terms of Service', href: '#' },
+  { label: 'Allergens', href: '#' },
+  { label: 'Careers', href: '#' },
+] as const

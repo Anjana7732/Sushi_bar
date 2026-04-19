@@ -43,7 +43,7 @@ function FieldShell({
 }) {
   return (
     <div
-      className={`flex items-center gap-2 rounded-md border border-zk-line bg-white px-3 py-2.5 transition focus-within:border-zk-crimson focus-within:shadow-[0_0_0_3px_rgba(123,27,46,0.08)] ${className}`}
+      className={`flex items-center gap-2 rounded-md border border-zk-line bg-white px-3 py-2.5 transition focus-within:border-zk-crimson focus-within:shadow-[0_0_0_3px_rgba(123,27,46,0.08)] dark:border-neutral-600 dark:bg-neutral-800/90 dark:focus-within:border-zk-crimson-light ${className}`}
     >
       {children}
     </div>
@@ -65,10 +65,10 @@ function InfoRow({
         {icon}
       </div>
       <div className="min-w-0 flex-1">
-        <div className="mb-0.5 text-[0.65rem] font-medium uppercase tracking-[0.12em] text-zk-muted">
+        <div className="mb-0.5 text-[0.65rem] font-medium uppercase tracking-[0.12em] text-zk-muted dark:text-neutral-500">
           {label}
         </div>
-        <div className="text-[0.88rem] font-light leading-relaxed text-zk-ink">
+        <div className="text-[0.88rem] font-light leading-relaxed text-zk-ink dark:text-neutral-200">
           {children}
         </div>
       </div>
@@ -85,7 +85,7 @@ type ReservationSummary = {
 }
 
 export function ContactReservationView() {
-  const [date, setDate] = useState('')
+  const [date, setDate] = useState(todayIsoDate)
   const [time, setTime] = useState('18:00')
   const [guests, setGuests] = useState(2)
   const [firstName, setFirstName] = useState('')
@@ -96,10 +96,6 @@ export function ContactReservationView() {
   const [overlayOpen, setOverlayOpen] = useState(false)
   const [summary, setSummary] = useState<ReservationSummary | null>(null)
   const [shakeConfirm, setShakeConfirm] = useState(false)
-
-  useEffect(() => {
-    setDate(todayIsoDate())
-  }, [])
 
   const closeModal = useCallback(() => {
     setOverlayOpen(false)
@@ -150,12 +146,12 @@ export function ContactReservationView() {
   }
 
   return (
-    <div className="font-zk-ui text-zk-ink">
+    <div className="font-zk-ui text-zk-ink dark:text-neutral-100">
       <header className="px-4 py-16 text-center sm:px-6 sm:py-[4.5rem]">
-        <h1 className="font-zk-display text-[clamp(2.4rem,5vw,3.8rem)] font-light tracking-wide text-zk-ink">
+        <h1 className="font-zk-display text-[clamp(2.4rem,5vw,3.8rem)] font-light tracking-wide text-zk-ink dark:text-neutral-50">
           Reserve Your Table
         </h1>
-        <p className="mx-auto mt-4 max-w-[30rem] text-[0.92rem] font-light leading-[1.7] text-zk-mid">
+        <p className="mx-auto mt-4 max-w-[30rem] text-[0.92rem] font-light leading-[1.7] text-zk-mid dark:text-neutral-400">
           Join us for an unforgettable dining experience. For parties larger than six,
           please contact us directly.
         </p>
@@ -164,17 +160,17 @@ export function ContactReservationView() {
       <div className="mx-auto mb-20 w-full max-w-[1000px] px-4 sm:px-8">
         <div
           id="reservation-form"
-          className="grid overflow-hidden rounded-[10px] border border-zk-line bg-white shadow-[0_4px_24px_rgba(123,27,46,0.08)] md:grid-cols-2"
+          className="grid overflow-hidden rounded-[10px] border border-zk-line bg-white shadow-[0_4px_24px_rgba(123,27,46,0.08)] dark:border-neutral-700 dark:bg-neutral-900 dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] md:grid-cols-2"
         >
           {/* Form */}
-          <div className="border-zk-line p-7 sm:p-9 max-md:border-b md:border-r md:p-11">
-            <h2 className="mb-7 font-zk-display text-2xl font-normal text-zk-ink">
+          <div className="border-zk-line p-7 sm:p-9 max-md:border-b max-md:dark:border-neutral-700 md:border-r md:p-11 dark:border-zk-line/40">
+            <h2 className="mb-7 font-zk-display text-2xl font-normal text-zk-ink dark:text-neutral-50">
               Reservation Details
             </h2>
 
             <div className="mb-7 grid grid-cols-1 gap-3.5 md:grid-cols-3">
               <div className="flex flex-col gap-1.5">
-                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted">
+                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted dark:text-neutral-500">
                   Date
                 </span>
                 <FieldShell>
@@ -183,12 +179,12 @@ export function ContactReservationView() {
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="min-w-0 flex-1 border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none"
+                    className="min-w-0 flex-1 border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none dark:text-neutral-100"
                   />
                 </FieldShell>
               </div>
               <div className="flex flex-col gap-1.5">
-                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted">
+                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted dark:text-neutral-500">
                   Time
                 </span>
                 <FieldShell>
@@ -196,7 +192,7 @@ export function ContactReservationView() {
                   <select
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
-                    className="min-w-0 flex-1 cursor-pointer border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none"
+                    className="min-w-0 flex-1 cursor-pointer border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none dark:text-neutral-100"
                   >
                     {TIME_OPTIONS.map((t) => (
                       <option key={t} value={t}>
@@ -207,7 +203,7 @@ export function ContactReservationView() {
                 </FieldShell>
               </div>
               <div className="flex flex-col gap-1.5">
-                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted">
+                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted dark:text-neutral-500">
                   Guests
                 </span>
                 <FieldShell>
@@ -215,7 +211,7 @@ export function ContactReservationView() {
                   <select
                     value={guests}
                     onChange={(e) => setGuests(Number(e.target.value))}
-                    className="min-w-0 flex-1 cursor-pointer border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none"
+                    className="min-w-0 flex-1 cursor-pointer border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none dark:text-neutral-100"
                   >
                     {GUEST_OPTIONS.map((n) => (
                       <option key={n} value={n}>
@@ -227,15 +223,15 @@ export function ContactReservationView() {
               </div>
             </div>
 
-            <hr className="my-7 border-0 border-t border-zk-line" />
+            <hr className="my-7 border-0 border-t border-zk-line dark:border-neutral-700" />
 
-            <p className="mb-5 font-zk-display text-xl font-normal text-zk-ink">
+            <p className="mb-5 font-zk-display text-xl font-normal text-zk-ink dark:text-neutral-50">
               Contact Information
             </p>
 
             <div className="mb-3.5 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
               <div className="flex flex-col gap-1.5">
-                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted">
+                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted dark:text-neutral-500">
                   First Name
                 </span>
                 <FieldShell>
@@ -245,12 +241,12 @@ export function ContactReservationView() {
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="e.g. Jane"
                     autoComplete="given-name"
-                    className="min-w-0 flex-1 border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none placeholder:text-[#bbb]"
+                    className="min-w-0 flex-1 border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none dark:text-neutral-100 placeholder:text-[#bbb] dark:placeholder:text-neutral-500"
                   />
                 </FieldShell>
               </div>
               <div className="flex flex-col gap-1.5">
-                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted">
+                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted dark:text-neutral-500">
                   Last Name
                 </span>
                 <FieldShell>
@@ -260,7 +256,7 @@ export function ContactReservationView() {
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder="e.g. Doe"
                     autoComplete="family-name"
-                    className="min-w-0 flex-1 border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none placeholder:text-[#bbb]"
+                    className="min-w-0 flex-1 border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none dark:text-neutral-100 placeholder:text-[#bbb] dark:placeholder:text-neutral-500"
                   />
                 </FieldShell>
               </div>
@@ -268,7 +264,7 @@ export function ContactReservationView() {
 
             <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
               <div className="flex flex-col gap-1.5">
-                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted">
+                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted dark:text-neutral-500">
                   Email Address
                 </span>
                 <FieldShell>
@@ -279,12 +275,12 @@ export function ContactReservationView() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="jane@example.com"
                     autoComplete="email"
-                    className="min-w-0 flex-1 border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none placeholder:text-[#bbb]"
+                    className="min-w-0 flex-1 border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none dark:text-neutral-100 placeholder:text-[#bbb] dark:placeholder:text-neutral-500"
                   />
                 </FieldShell>
               </div>
               <div className="flex flex-col gap-1.5">
-                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted">
+                <span className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted dark:text-neutral-500">
                   Phone Number
                 </span>
                 <FieldShell>
@@ -295,14 +291,14 @@ export function ContactReservationView() {
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="(555) 123-4567"
                     autoComplete="tel"
-                    className="min-w-0 flex-1 border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none placeholder:text-[#bbb]"
+                    className="min-w-0 flex-1 border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none dark:text-neutral-100 placeholder:text-[#bbb] dark:placeholder:text-neutral-500"
                   />
                 </FieldShell>
               </div>
             </div>
 
-            <div className="mt-[18px] rounded-md border border-zk-line px-3 py-3 transition focus-within:border-zk-crimson focus-within:shadow-[0_0_0_3px_rgba(123,27,46,0.08)]">
-              <span className="mb-2 block text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted">
+            <div className="mt-[18px] rounded-md border border-zk-line bg-transparent px-3 py-3 transition focus-within:border-zk-crimson focus-within:shadow-[0_0_0_3px_rgba(123,27,46,0.08)] dark:border-neutral-600 dark:bg-neutral-800/40 dark:focus-within:border-zk-crimson-light">
+              <span className="mb-2 block text-[0.7rem] font-medium uppercase tracking-[0.1em] text-zk-muted dark:text-neutral-500">
                 Special Requests / Dietary Restrictions
               </span>
               <textarea
@@ -310,7 +306,7 @@ export function ContactReservationView() {
                 onChange={(e) => setSpecialRequests(e.target.value)}
                 placeholder="Allergies, special occasions, etc."
                 rows={4}
-                className="min-h-[90px] w-full resize-none border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none placeholder:text-[#bbb]"
+                className="min-h-[90px] w-full resize-none border-0 bg-transparent text-[0.88rem] font-light text-zk-ink outline-none dark:text-neutral-100 placeholder:text-[#bbb] dark:placeholder:text-neutral-500"
               />
             </div>
 
@@ -325,8 +321,10 @@ export function ContactReservationView() {
           </div>
 
           {/* Info + map */}
-          <div className="flex flex-col gap-8 bg-zk-panel p-7 sm:p-9 md:px-9 md:py-11">
-            <h2 className="font-zk-display text-2xl font-normal text-zk-ink">Get in Touch</h2>
+          <div className="flex flex-col gap-8 bg-zk-panel p-7 sm:p-9 md:px-9 md:py-11 dark:bg-neutral-800/90">
+            <h2 className="font-zk-display text-2xl font-normal text-zk-ink dark:text-neutral-50">
+              Get in Touch
+            </h2>
 
             <div className="flex flex-col gap-5">
               <InfoRow
@@ -363,7 +361,7 @@ export function ContactReservationView() {
               </InfoRow>
             </div>
 
-            <div className="relative mt-auto h-[150px] overflow-hidden rounded-lg bg-gradient-to-br from-[#e8dde0] to-[#d6c9cd]">
+            <div className="relative mt-auto h-[150px] overflow-hidden rounded-lg bg-gradient-to-br from-[#e8dde0] to-[#d6c9cd] dark:from-neutral-700 dark:to-neutral-800">
               <MapPin
                 className="pointer-events-none absolute left-1/2 top-1/2 size-14 -translate-x-1/2 -translate-y-[55%] text-zk-crimson/85 drop-shadow-md"
                 strokeWidth={1.75}
@@ -372,7 +370,7 @@ export function ContactReservationView() {
               <button
                 type="button"
                 onClick={openDirections}
-                className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-[5px] border border-zk-line bg-white px-3.5 py-2 text-[0.75rem] font-medium tracking-[0.06em] text-zk-ink transition hover:bg-zk-blush"
+                className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-[5px] border border-zk-line bg-white px-3.5 py-2 text-[0.75rem] font-medium tracking-[0.06em] text-zk-ink transition hover:bg-zk-blush dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
               >
                 <Navigation className="size-3" strokeWidth={2.5} aria-hidden />
                 Get Directions
@@ -394,7 +392,7 @@ export function ContactReservationView() {
           }}
         >
           <div
-            className="animate-zk-modal-in w-full max-w-[460px] rounded-[14px] bg-white px-9 py-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.2)] sm:px-11"
+            className="animate-zk-modal-in w-full max-w-[460px] rounded-[14px] bg-white px-9 py-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.2)] dark:bg-neutral-900 dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] sm:px-11"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mx-auto mb-6 flex size-[72px] items-center justify-center rounded-full bg-zk-crimson text-white">
@@ -402,51 +400,51 @@ export function ContactReservationView() {
             </div>
             <h2
               id="res-success-title"
-              className="mb-2.5 font-zk-display text-[2rem] font-normal text-zk-ink"
+              className="mb-2.5 font-zk-display text-[2rem] font-normal text-zk-ink dark:text-neutral-50"
             >
               Reservation Confirmed!
             </h2>
-            <p className="text-[0.9rem] font-light leading-[1.7] text-zk-mid">
+            <p className="text-[0.9rem] font-light leading-[1.7] text-zk-mid dark:text-neutral-400">
               Thank you! We look forward to welcoming you.
               <br />A confirmation email will be sent shortly.
             </p>
 
             {summary ? (
-              <div className="my-5 flex flex-col gap-2.5 rounded-lg bg-zk-panel px-5 py-4 text-left">
+              <div className="my-5 flex flex-col gap-2.5 rounded-lg bg-zk-panel px-5 py-4 text-left dark:bg-neutral-800">
                 <div className="flex justify-between gap-4 text-[0.88rem]">
-                  <span className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-zk-muted">
+                  <span className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-zk-muted dark:text-neutral-500">
                     Name
                   </span>
-                  <span className="font-normal text-zk-ink">{summary.name}</span>
+                  <span className="font-normal text-zk-ink dark:text-neutral-100">{summary.name}</span>
                 </div>
                 <div className="flex justify-between gap-4 text-[0.88rem]">
-                  <span className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-zk-muted">
+                  <span className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-zk-muted dark:text-neutral-500">
                     Date
                   </span>
-                  <span className="text-right font-normal text-zk-ink">{summary.dateLabel}</span>
+                  <span className="text-right font-normal text-zk-ink dark:text-neutral-100">{summary.dateLabel}</span>
                 </div>
                 <div className="flex justify-between gap-4 text-[0.88rem]">
-                  <span className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-zk-muted">
+                  <span className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-zk-muted dark:text-neutral-500">
                     Time
                   </span>
-                  <span className="font-normal text-zk-ink">{summary.time}</span>
+                  <span className="font-normal text-zk-ink dark:text-neutral-100">{summary.time}</span>
                 </div>
                 <div className="flex justify-between gap-4 text-[0.88rem]">
-                  <span className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-zk-muted">
+                  <span className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-zk-muted dark:text-neutral-500">
                     Guests
                   </span>
-                  <span className="font-normal text-zk-ink">{summary.guestsLabel}</span>
+                  <span className="font-normal text-zk-ink dark:text-neutral-100">{summary.guestsLabel}</span>
                 </div>
                 <div className="flex justify-between gap-4 text-[0.88rem]">
-                  <span className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-zk-muted">
+                  <span className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-zk-muted dark:text-neutral-500">
                     Email
                   </span>
-                  <span className="min-w-0 truncate font-normal text-zk-ink">{summary.email}</span>
+                  <span className="min-w-0 truncate font-normal text-zk-ink dark:text-neutral-100">{summary.email}</span>
                 </div>
               </div>
             ) : null}
 
-            <p className="text-[0.8rem] text-zk-muted">
+            <p className="text-[0.8rem] text-zk-muted dark:text-neutral-500">
               For changes or cancellations, contact us at least 24 hours in advance.
             </p>
             <button

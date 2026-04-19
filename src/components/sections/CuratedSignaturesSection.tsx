@@ -47,8 +47,8 @@ function SignatureCard({ item, large }: { item: SignatureItem; large?: boolean }
     <article
       className={
         large
-          ? 'flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_20px_50px_-24px_rgba(0,0,0,0.18)] ring-1 ring-black/[0.04]'
-          : 'flex flex-1 flex-col overflow-hidden rounded-3xl bg-white shadow-[0_16px_40px_-22px_rgba(0,0,0,0.15)] ring-1 ring-black/[0.04]'
+          ? 'flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_20px_50px_-24px_rgba(0,0,0,0.18)] ring-1 ring-black/[0.04] dark:bg-neutral-900 dark:shadow-[0_20px_50px_-24px_rgba(0,0,0,0.5)] dark:ring-white/10'
+          : 'flex flex-1 flex-col overflow-hidden rounded-3xl bg-white shadow-[0_16px_40px_-22px_rgba(0,0,0,0.15)] ring-1 ring-black/[0.04] dark:bg-neutral-900 dark:shadow-[0_16px_40px_-22px_rgba(0,0,0,0.45)] dark:ring-white/10'
       }
     >
       <div className={large ? 'aspect-[16/10] w-full sm:aspect-[16/9]' : 'aspect-[16/10] w-full'}>
@@ -64,14 +64,14 @@ function SignatureCard({ item, large }: { item: SignatureItem; large?: boolean }
       </div>
       <div className="flex flex-1 flex-col gap-2 px-6 pb-7 pt-6 sm:px-7">
         <div className="flex items-start justify-between gap-4">
-          <h3 className="font-serif text-xl font-semibold tracking-tight text-neutral-950 sm:text-2xl">
+          <h3 className="font-serif text-xl font-semibold tracking-tight text-neutral-950 sm:text-2xl dark:text-neutral-50">
             {item.title}
           </h3>
           <span className="shrink-0 pt-0.5 font-sans text-base font-semibold text-zen-red sm:text-lg">
             {item.price}
           </span>
         </div>
-        <p className="text-sm leading-relaxed text-neutral-500">{item.description}</p>
+        <p className="text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">{item.description}</p>
       </div>
     </article>
   )
@@ -83,7 +83,7 @@ export function CuratedSignaturesSection() {
 
   return (
     <section
-      className="border-t border-neutral-200/80 bg-white py-16 sm:py-20 lg:py-24"
+      className="border-t border-neutral-200/80 bg-white py-16 sm:py-20 lg:py-24 dark:border-neutral-800 dark:bg-neutral-950"
       aria-labelledby="curated-heading"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -91,18 +91,18 @@ export function CuratedSignaturesSection() {
           <header className="max-w-xl">
             <h2
               id="curated-heading"
-              className="font-serif text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl"
+              className="font-serif text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl dark:text-neutral-50"
             >
               Curated Signatures
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-neutral-500 sm:text-base">
+            <p className="mt-3 text-sm leading-relaxed text-neutral-500 sm:text-base dark:text-neutral-400">
               A handpicked selection of our most celebrated dishes, crafted with
               passion and the finest seasonal ingredients.
             </p>
           </header>
           <Link
             to="/gallery"
-            className="inline-flex items-center gap-1 self-start text-xs font-semibold uppercase tracking-[0.22em] text-neutral-700 transition hover:text-zen-red sm:self-auto"
+            className="inline-flex items-center gap-1 self-start text-xs font-semibold uppercase tracking-[0.22em] text-neutral-700 transition hover:text-zen-red sm:self-auto dark:text-neutral-300 dark:hover:text-red-400"
           >
             View full gallery
             <ArrowRight className="size-4" aria-hidden />

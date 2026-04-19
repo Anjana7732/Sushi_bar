@@ -1,29 +1,63 @@
+import { useCallback, useEffect, useState } from 'react'
+
+import { MenuCategoryNav } from '../components/menu/MenuCategoryNav'
+import { MenuHero } from '../components/menu/MenuHero'
+import { MenuSectionBlock } from '../components/menu/MenuSectionBlock'
+import {
+  MENU_CATEGORIES,
+  MENU_SECTIONS,
+  type MenuCategoryId,
+} from '../data/menuPageData'
+
 export function MenuPage() {
+  const [activeCategory, setActiveCategory] = useState<MenuCategoryId>('indian')
+
+  const scrollToCategory = useCallback((id: MenuCategoryId) => {
+    setActiveCategory(id)
+    const section = MENU_SECTIONS.find((s) => s.categoryId === id)
+    if (!section) return
+    document.getElementById(`section-${section.id}`)?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }, [])
+
+  useEffect(() => {
+    const elements = MENU_SECTIONS.map((s) =>
+      document.getElementById(`section-${s.id}`),
+    ).filter((n): n is HTMLElement => n !== null)
+    if (elements.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting && e.intersectionRatio > 0.15)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+        if (!visible?.target?.id) return
+        const sid = visible.target.id.replace('section-', '')
+        const sec = MENU_SECTIONS.find((s) => s.id === sid)
+        if (sec) setActiveCategory(sec.categoryId)
+      },
+      { root: null, rootMargin: '-42% 0px -42% 0px', threshold: [0, 0.15, 0.35, 0.55] },
+    )
+
+    elements.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <div className="border-t border-neutral-200/80 bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <header className="max-w-2xl">
-          <h1 className="font-serif text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-            Menu
-          </h1>
-          <p className="mt-3 text-sm leading-relaxed text-neutral-500 sm:text-base">
-            Dummy page for the full menu. Swap this block for categories, PDFs,
-            dietary filters, or CMS-driven items when you are ready.
-          </p>
-        </header>
-        <ul className="mt-10 grid list-none gap-3 p-0 sm:grid-cols-2">
-          {['Small plates', 'Noodles & rice', 'Curries', 'Sushi & sashimi', 'Desserts', 'Drinks'].map(
-            (cat) => (
-              <li
-                key={cat}
-                className="rounded-2xl border border-neutral-200 bg-neutral-50 px-5 py-4 text-sm font-medium text-neutral-800"
-              >
-                {cat}
-              </li>
-            ),
-          )}
-        </ul>
+    <div className="min-h-full bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+      <MenuHero />
+      <div className="sticky top-16 z-30">
+        <MenuCategoryNav
+          categories={MENU_CATEGORIES}
+          activeId={activeCategory}
+          onSelect={scrollToCategory}
+        />
       </div>
+      {MENU_SECTIONS.map((section) => (
+        <MenuSectionBlock key={section.id} section={section} />
+      ))}
     </div>
   )
 }

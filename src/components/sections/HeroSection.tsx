@@ -6,27 +6,27 @@ import heroBackdrop from '../../assets/zen-landing-reference.png'
 export function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden bg-neutral-100"
+      className="relative overflow-hidden bg-neutral-100 dark:bg-neutral-900"
       aria-label="Introduction"
     >
       <div className="pointer-events-none absolute inset-0">
         <img
           src={heroBackdrop}
           alt=""
-          className="h-full w-full object-cover object-[center_12%] opacity-[0.38] mix-blend-multiply sm:object-[center_8%]"
+          className="h-full w-full object-cover object-[center_12%] opacity-[0.38] mix-blend-multiply sm:object-[center_8%] dark:opacity-25 dark:mix-blend-soft-light"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-white/80 to-white" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-white/80 to-white dark:from-neutral-950/40 dark:via-neutral-950/85 dark:to-neutral-950" />
       </div>
 
       <div className="relative mx-auto flex min-h-[min(88vh,820px)] max-w-6xl flex-col items-center justify-center px-4 py-24 text-center sm:px-6 lg:min-h-[min(90vh,880px)] lg:px-8 lg:py-28">
-        <h1 className="max-w-4xl font-serif text-[clamp(2.25rem,5vw,3.75rem)] font-medium leading-[1.08] tracking-tight text-neutral-950">
+        <h1 className="max-w-4xl font-serif text-[clamp(2.25rem,5vw,3.75rem)] font-medium leading-[1.08] tracking-tight text-neutral-950 dark:text-neutral-50">
           <span className="block">Explore the Art</span>
           <span className="mt-1 block font-semibold italic text-zen-red sm:mt-2 sm:text-[clamp(2.75rem,6vw,4.5rem)]">
             of Asian Cuisine
           </span>
         </h1>
-        <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-neutral-500 sm:text-base">
+        <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-neutral-500 sm:text-base dark:text-neutral-400">
           Discover a symphony of flavors where ancient recipes meet modern
           elegance. Join us for an unforgettable journey through the senses.
         </p>
