@@ -118,7 +118,10 @@ export function HeroSection() {
             aria-live="polite"
           >
             <span className="motion-safe:animate-hero-inline-enter">
-              Explore the Art of <span className="hero-accent-word text-zen-red">Asian Cuisine</span>
+              Explore the Art of{' '}
+              <span className="hero-accent-word text-amber-400 dark:text-amber-300">
+                Asian Cuisine
+              </span>
             </span>
           </h1>
         </div>

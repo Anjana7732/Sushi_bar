@@ -21,6 +21,7 @@ function ScrollToTop() {
 export function RootLayout() {
   const { pathname } = useLocation()
   const isMenuRoute = pathname === '/menu'
+  const useMenuFooterVariant = pathname === '/menu' || pathname === '/gallery'
 
   return (
     <div className="flex min-h-dvh flex-col bg-white text-neutral-900 antialiased transition-colors duration-200 dark:bg-neutral-950 dark:text-neutral-100">
@@ -46,8 +47,8 @@ export function RootLayout() {
         tagline="Authentic flavors, modern elegance, and a calm space to gather."
         year={2024}
         columns={footerColumns}
-        variant={isMenuRoute ? 'menu' : 'default'}
-        menuInlineLinks={isMenuRoute ? menuFooterInlineLinks : undefined}
+        variant={useMenuFooterVariant ? 'menu' : 'default'}
+        menuInlineLinks={useMenuFooterVariant ? menuFooterInlineLinks : undefined}
       />
     </div>
   )

@@ -258,17 +258,56 @@
   will-change: transform, opacity;
 }
 
+@keyframes gallery-eyebrow-in {
+  from {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes gallery-title-in {
+  from {
+    opacity: 0;
+    transform: translate3d(-36px, 0, 0) scale3d(0.992, 0.992, 1);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    filter: blur(0);
+  }
+}
+
+.animate-gallery-eyebrow-in {
+  animation: gallery-eyebrow-in 1100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, opacity;
+}
+
+.animate-gallery-title-in {
+  animation: gallery-title-in 1450ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 180ms;
+  will-change: transform, opacity;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-gallery-overlay-in,
   .animate-gallery-modal-in,
-  .animate-gallery-card-in {
+  .animate-gallery-card-in,
+  .animate-gallery-eyebrow-in,
+  .animate-gallery-title-in {
     animation: none;
   }
 }
 
 .hero-accent-word {
   text-shadow:
-    0 0 14px rgba(127, 29, 29, 0.35),
+    0 0 16px rgba(251, 191, 36, 0.34),
     0 2px 10px rgba(0, 0, 0, 0.36);
 }
 
