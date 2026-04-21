@@ -69,7 +69,7 @@ export function Navbar({
 
   return (
     <header className={headerClass}>
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <div className="flex w-full items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <Link
           to="/"
           aria-label="Asian Spice kitchen, home"
@@ -78,10 +78,7 @@ export function Navbar({
           <span className={logoTextClass}>Asian Spice kitchen</span>
         </Link>
 
-        <nav
-          className="hidden flex-1 justify-center md:flex"
-          aria-label="Primary"
-        >
+        <nav className="hidden flex-1 justify-center md:flex" aria-label="Primary">
           <ul className={navListClass}>
             {links.map((link) => (
               <li key={link.to + link.label}>
